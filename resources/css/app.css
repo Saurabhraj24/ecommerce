@@ -1,0 +1,258 @@
+@import 'tailwindcss';
+
+@source "../views";
+@source "../views/**/*.blade.php";
+@source "../../resources/views";
+@source "../../resources/views/**/*.blade.php";
+@source "../js";
+
+
+@theme {
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Poppins', 'Inter', system-ui, -apple-system, sans-serif;
+
+    /* Bombay Fashion Festive Color Palette */
+    --color-primary: #c2185b; /* Rich rose/magenta default */
+    --color-primary-50: #fdf2f6;
+    --color-primary-100: #fbe5ed;
+    --color-primary-200: #f7ccdd;
+    --color-primary-300: #f0a3c2;
+    --color-primary-400: #e4709e;
+    --color-primary-500: #c2185b; /* Rich rose/magenta */
+    --color-primary-600: #ad1457;
+    --color-primary-700: #880e4f;
+    --color-primary-800: #701142;
+    --color-primary-900: #5d1238;
+
+    --color-gold: #d4a017;
+    --color-gold-50: #fdfaf0;
+    --color-gold-100: #f9f2d6;
+    --color-gold-200: #f2e3a8;
+    --color-gold-300: #e9ce73;
+    --color-gold-400: #dfb742;
+    --color-gold-500: #d4a017; /* Warm festive gold */
+    --color-gold-600: #b88111;
+    --color-gold-700: #935f11;
+    --color-gold-800: #7a4c14;
+
+    --color-teal: #2bb3a3;
+    --color-teal-50: #effaf8;
+    --color-teal-100: #d7f3ee;
+    --color-teal-200: #b2e6de;
+    --color-teal-300: #7fd2c6;
+    --color-teal-400: #4fb9ac;
+    --color-teal-500: #2bb3a3; /* Soft teal accent */
+    --color-teal-600: #219285;
+    --color-teal-700: #1e756c;
+
+    --color-cream: #fff9f3;
+    --color-cream-50: #fffdfa;
+    --color-cream-100: #fff9f3;
+    --color-cream-200: #fff1e5;
+
+    --color-blush: #fde8ef;
+    --color-peach: #fff0e6;
+    --color-lavender: #f7f2fc;
+    --color-plum: #3b2a3e; /* Deep charcoal/plum body text */
+
+    /* Festive Color Aliases */
+    --color-festive-rose: #c2185b;
+    --color-festive-plum: #3b2a3e;
+    --color-festive-ivory: #fff9f3;
+    --color-festive-blush: #fde8ef;
+    --color-festive-gold: #d4a017;
+    --color-festive-lavender: #f7f2fc;
+}
+
+/* Glassmorphism & Soft Neumorphic Design System */
+@layer utilities {
+    .bg-primary {
+        background-color: #c2185b !important;
+    }
+    .text-primary {
+        color: #c2185b !important;
+    }
+    .border-primary {
+        border-color: #c2185b !important;
+    }
+    .hover\:bg-primary-700:hover {
+        background-color: #880e4f !important;
+    }
+    .hover\:bg-primary-600:hover {
+        background-color: #ad1457 !important;
+    }
+    .focus\:ring-primary:focus {
+        --tw-ring-color: #c2185b !important;
+    }
+
+    .glass-navbar {
+        background-color: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(194, 24, 91, 0.12);
+        box-shadow: 0 4px 20px -2px rgba(194, 24, 91, 0.06);
+    }
+
+    .glass-card {
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(194, 24, 91, 0.12);
+        box-shadow: 0 8px 24px -4px rgba(194, 24, 91, 0.08), 0 2px 6px -1px rgba(59, 42, 62, 0.04);
+    }
+
+    .glass-card-hover {
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .glass-card-hover:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 36px -6px rgba(194, 24, 91, 0.16), 0 6px 12px -2px rgba(0, 0, 0, 0.04);
+        border-color: rgba(194, 24, 91, 0.25);
+    }
+
+    .glass-modal {
+        background-color: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(194, 24, 91, 0.15);
+        box-shadow: 0 25px 50px -12px rgba(194, 24, 91, 0.22);
+    }
+
+    .soft-input {
+        background-color: #ffffff;
+        border: 1px solid rgba(194, 24, 91, 0.2);
+        color: #3b2a3e;
+        transition: all 0.2s ease-in-out;
+    }
+    .soft-input:focus {
+        background-color: #ffffff;
+        border-color: #c2185b;
+        box-shadow: 0 0 0 3px rgba(194, 24, 91, 0.15);
+        outline: none;
+    }
+
+    .soft-btn-primary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        background: linear-gradient(135deg, #c2185b 0%, #ad1457 100%);
+        color: #ffffff;
+        box-shadow: 0 4px 14px 0 rgba(194, 24, 91, 0.35);
+        transition: all 0.25s ease;
+    }
+    .soft-btn-primary svg {
+        flex-shrink: 0;
+        width: 1.125rem;
+        height: 1.125rem;
+    }
+    .soft-btn-primary:hover {
+        background: linear-gradient(135deg, #ad1457 0%, #880e4f 100%);
+        transform: translateY(-1px);
+        box-shadow: 0 6px 20px 0 rgba(194, 24, 91, 0.45);
+        color: #ffffff;
+    }
+
+    .soft-btn-secondary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        background: linear-gradient(135deg, #d4a017 0%, #b88111 100%);
+        color: #ffffff;
+        box-shadow: 0 4px 14px 0 rgba(212, 160, 23, 0.35);
+        transition: all 0.25s ease;
+    }
+    .soft-btn-secondary svg {
+        flex-shrink: 0;
+        width: 1.125rem;
+        height: 1.125rem;
+    }
+    .soft-btn-secondary:hover {
+        background: linear-gradient(135deg, #b88111 0%, #935f11 100%);
+        transform: translateY(-1px);
+        box-shadow: 0 6px 20px 0 rgba(212, 160, 23, 0.45);
+        color: #ffffff;
+    }
+
+    .soft-btn-accent {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        background: linear-gradient(135deg, #2bb3a3 0%, #219285 100%);
+        color: #ffffff;
+        box-shadow: 0 4px 14px 0 rgba(43, 179, 163, 0.35);
+        transition: all 0.25s ease;
+    }
+    .soft-btn-accent svg {
+        flex-shrink: 0;
+        width: 1.125rem;
+        height: 1.125rem;
+    }
+    .soft-btn-accent:hover {
+        background: linear-gradient(135deg, #219285 0%, #1e756c 100%);
+        transform: translateY(-1px);
+        box-shadow: 0 6px 20px 0 rgba(43, 179, 163, 0.45);
+        color: #ffffff;
+    }
+
+    .soft-btn-outline {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        background-color: #ffffff;
+        border: 1px solid rgba(194, 24, 91, 0.3);
+        color: #c2185b;
+        transition: all 0.2s ease;
+    }
+    .soft-btn-outline:hover {
+        background-color: #fde8ef;
+        border-color: #c2185b;
+        color: #880e4f;
+    }
+
+    .festive-badge {
+        background: linear-gradient(135deg, #fde8ef 0%, #fff1e5 100%);
+        color: #c2185b;
+        border: 1px solid rgba(194, 24, 91, 0.2);
+    }
+
+    .festive-gradient-bg {
+        background: radial-gradient(circle at 10% 20%, rgba(253, 232, 239, 0.7) 0%, rgba(255, 249, 243, 0.9) 50%, rgba(255, 240, 230, 0.7) 100%);
+    }
+}
+
+/* Alpine Cloak */
+[x-cloak] {
+    display: none !important;
+}
+
+/* Base Body Styles */
+body {
+    background-color: #fff9f3;
+    color: #3b2a3e;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .font-serif {
+    font-family: var(--font-serif);
+}
+
+/* Custom Scrollbar in Festive Gold/Rose */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #fff9f3;
+}
+::-webkit-scrollbar-thumb {
+    background: #e4709e;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #c2185b;
+}
